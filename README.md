@@ -1,5 +1,45 @@
-# Dialog-Getting-Started
+# Getting Started: Dialog Systems
+
 Resources for Getting Started in NLP for Dialog Systems
+
+## The Basic I/O structure of Dialogs: 
+
+**Input (context):** The sequence of all previous utterances.
+
+**Output (response):** The final utterance to be predicted.
+
+`__eou__`: Special token for end of utterance.
+
+```
+Complete Dialog:
+ can you do push-ups ? 
+ of course i can . it's a piece of cake ! believe it or not , i can do 30 push-ups a minute . 
+ really ? i think that's impossible ! 
+ you mean 30 push-ups ? 
+ yeah ! 
+ it's easy . if you do exercise everyday , you can make it , too . 
+
+Training Samples:
+[1]
+Input: can you do push-ups ? 
+Output: of course i can . it's a piece of cake ! believe it or not , i can do 30 push-ups a minute . 
+
+[2]
+Input: can you do push-ups ? __eou__ of course i can . it's a piece of cake ! believe it or not , i can do 30 push-ups a minute . 
+Output: really ? i think that's impossible ! 
+
+[3]
+Input: can you do push-ups ? __eou__ of course i can . it's a piece of cake ! believe it or not , i can do 30 push-ups a minute . __eou__ really ? i think that's impossible ! 
+Output: you mean 30 push-ups ? 
+
+[4]
+Input: can you do push-ups ? __eou__ of course i can . it's a piece of cake ! believe it or not , i can do 30 push-ups a minute . __eou__ really ? i think that's impossible ! __eou__ you mean 30 push-ups ? 
+Output: yeah ! 
+
+[5]
+Input: can you do push-ups ? __eou__ of course i can . it's a piece of cake ! believe it or not , i can do 30 push-ups a minute . __eou__ really ? i think that's impossible ! __eou__ you mean 30 push-ups ? __eou__ yeah ! 
+Output: it's easy . if you do exercise everyday , you can make it , too .
+```
 
 # Basic Materials
 
@@ -34,7 +74,7 @@ Resources for Getting Started in NLP for Dialog Systems
 
 **Multiwoz:** [**https://github.com/budzianowski/multiwoz**](https://github.com/budzianowski/multiwoz)
 
-## Helpful Blog Posts:
+## Other Helpful Blog Posts:
 
 - [How do Transformers Work in NLP? A Guide to the Latest State-of-the-Art Models](https://www.analyticsvidhya.com/blog/2019/06/understanding-transformers-nlp-state-of-the-art-models/)
 - [The Illustrated Transformer – Jay Alammar – Visualizing machine learning one concept at a time.](http://jalammar.github.io/illustrated-transformer/)
@@ -44,3 +84,4 @@ Resources for Getting Started in NLP for Dialog Systems
 - FastAI tutorial on Transformers (with code): [The Transformer for language translation (NLP video 18)](https://www.youtube.com/watch?v=KzfyftiH7R8)
 - [https://github.com/fawazsammani/chatbot-transformer/blob/master](https://github.com/fawazsammani/chatbot-transformer/blob/master/models.py)PYTORCH CHATBOT TRANSFORMER IMPLEMENTATION
 - Good read for various decoding techniques: [https://huggingface.co/blog/how-to-generate](https://huggingface.co/blog/how-to-generate)
+
